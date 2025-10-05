@@ -7,12 +7,27 @@ function App() {
   const [endereco, setEndereco] = useState(null);
   const [error, setError] = useState('');
 
+  const formatarCEP = (valor) => {
+    const apenasNumeros = valor.replace(/\D/g, '');
+
+    if (apenasNumeros.length <= 5) return apenasNumeros;
+    return apenasNumeros.replace(/(\d{5})(\d{0,3})/, '$1-$2');
+  }
+
+  const handleCepChange = (e) => {
+    const valorFormatado = formatarCEP(e.target.value);
+    setCep(valorFormatado);
+    setError('');
+  }
+
   const buscarCEP = async (e) => {
     e.preventDefault();
     setError('');
     setEndereco(null);
 
-    if (cep.length !== 8) {
+    const cepLimpo = cep.replace('-', '');
+
+    if (cepLimpo.length !== 8) {
       setError('CEP inválido. Deve conter 8 dígitos.');
       return;
     }
@@ -39,9 +54,9 @@ function App() {
               id="cep"
               label="CEP"
               value={cep}
-              onChange={(e) => setCep(e.target.value)}
+              onChange={handleCepChange}
               placeholder="Digite o CEP"
-              maxLength={8}
+              maxLength={9}
             />
             <button type='submit'>Buscar</button>
           </div>
