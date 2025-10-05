@@ -6,6 +6,7 @@ function App() {
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState(null);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const formatarCEP = (valor) => {
     const apenasNumeros = valor.replace(/\D/g, '');
@@ -24,11 +25,13 @@ function App() {
     e.preventDefault();
     setError('');
     setEndereco(null);
+    setLoading(true);
 
     const cepLimpo = cep.replace('-', '');
 
     if (cepLimpo.length !== 8) {
       setError('CEP inválido. Deve conter 8 dígitos.');
+      setLoading(false);
       return;
     }
 
@@ -40,6 +43,8 @@ function App() {
       setEndereco(data);
     } catch {
       setError('Erro ao buscar o CEP. Tente novamente mais tarde.');
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -60,6 +65,8 @@ function App() {
             />
             <button type='submit'>Buscar</button>
           </div>
+
+          {loading && <span className='loading'>Carregando...</span>}
 
           {error && <p className='error'>{error}</p>}
 
