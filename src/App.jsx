@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import InputField from './components/InputField';
 
 function App() {
   const [cep, setCep] = useState('');
@@ -33,15 +34,14 @@ function App() {
         <h1>Minha Rua</h1>
 
         <form className='form' onSubmit={buscarCEP}>
-          <label htmlFor="cep">CEP</label>
           <div className='input-group'>
-            <input
-              type="text"
+            <InputField
               id="cep"
-              name="cep"
-              placeholder="00000-000"
+              label="CEP"
               value={cep}
               onChange={(e) => setCep(e.target.value)}
+              placeholder="Digite o CEP"
+              maxLength={8}
             />
             <button type='submit'>Buscar</button>
           </div>
@@ -50,17 +50,10 @@ function App() {
 
           {endereco && (
             <>
-              <label htmlFor="rua">Rua</label>
-              <input type="text" id='rua' value={endereco.street} readOnly />
-
-              <label htmlFor="bairro">Bairro</label>
-              <input type="text" id='bairro' value={endereco.neighborhood} readOnly />
-
-              <label htmlFor="cidade">Cidade</label>
-              <input type="text" id='cidade' value={endereco.city} readOnly />
-
-              <label htmlFor="uf">Estado</label>
-              <input type="text" id='uf' value={endereco.state} readOnly />
+              <InputField id="rua" label="Rua" value={endereco.street} readOnly />
+              <InputField id="bairro" label="Bairro" value={endereco.neighborhood} readOnly />
+              <InputField id="cidade" label="Cidade" value={endereco.city} readOnly />
+              <InputField id="uf" label="UF" value={endereco.state} readOnly />
             </>
           )}
         </form>
