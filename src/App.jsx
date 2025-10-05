@@ -53,7 +53,7 @@ function App() {
     <>
       <main className='container'>
         <h1>Minha Rua</h1>
-        <img src={MinhaRua} alt="Caminhão de entregas" />
+        <img src={MinhaRua} width={250} alt="Caminhão de entregas" />
 
         <form className='form' onSubmit={buscarCEP}>
           <div className='input-group'>
