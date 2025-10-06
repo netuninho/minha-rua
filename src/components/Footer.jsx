@@ -3,12 +3,9 @@ import styled from "styled-components";
 import heartIcon from "../assets/img/icone-coracao.svg";
 
 const FooterContainer = styled.footer`
-  background-color: #694d98;
   text-align: center;
   padding: 2rem 0;
   font-size: 0.9rem;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
 `;
 
 const FooterInfo = styled.div`

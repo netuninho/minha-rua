@@ -1,7 +1,35 @@
 import { useState } from 'react'
 import InputField from './components/InputField';
-import MinhaRua from './assets/img/truck.gif'
 import Footer from './components/Footer';
+import Button from './components/Button';
+import MinhaRua from './assets/img/truck.gif'
+import styled, { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  background-color: #694d98;
+  }`;
+
+const Container = styled.main`
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+`;
+
+const Form = styled.form`
+  margin-top: 2rem;
+`;
+
+const InputGroup = styled.div`
+  display: flex;
+justify-content: center;
+`;
 
 function App() {
   const [cep, setCep] = useState('');
@@ -51,12 +79,13 @@ function App() {
 
   return (
     <>
-      <main className='container'>
+      <GlobalStyle />
+      <Container>
         <h1>Minha Rua</h1>
         <img src={MinhaRua} width={250} alt="Caminhão de entregas" />
 
-        <form className='form' onSubmit={buscarCEP}>
-          <div className='input-group'>
+        <Form onSubmit={buscarCEP}>
+          <InputGroup>
             <InputField
               id="cep"
               label="CEP"
@@ -65,8 +94,8 @@ function App() {
               placeholder="Digite o CEP"
               maxLength={9}
             />
-            <button type='submit'>Buscar</button>
-          </div>
+            <Button />
+          </InputGroup>
 
           {loading && <span className='loading'>Carregando...</span>}
 
@@ -80,8 +109,8 @@ function App() {
               <InputField id="uf" label="UF" value={endereco.state} readOnly />
             </>
           )}
-        </form>
-      </main>
+        </Form>
+      </Container>
       <Footer />
     </>
   )
