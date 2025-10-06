@@ -1,19 +1,58 @@
-import React from 'react'
+import React from "react";
+import styled from "styled-components";
 import heartIcon from "../assets/img/icone-coracao.svg";
+
+const FooterContainer = styled.footer`
+  background-color: #694d98;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+`;
+
+const FooterInfo = styled.div`
+  line-height: 1.2rem;
+`;
+
+const FooterLink = styled.a`
+  color: #fff;
+  text-decoration: none;
+  transition: 0.2s ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const HeartIcon = styled.img`
+  width: 10px;
+  transition: transform 0.2s ease;
+  margin-left: 0.3rem;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
 
 const Footer = () => {
   return (
-    <footer>
-      <div className='footer__info'>
+    <FooterContainer>
+      <FooterInfo>
         <p>
-          Code with heart. Design with purpose <img width='10' className='footer__icon' src={heartIcon} alt='Ícone de coração' />
+          Code with heart. Design with purpose
+          <HeartIcon src={heartIcon} alt="Ícone de coração" />
         </p>
-      </div>
-      <p>
-        © 2025. Produzido por <a className='footer__link --underline' href='https://github.com/netuninho' target='_blank'>Manuela Silva</a>
-      </p>
-    </footer>
-  )
-}
+      </FooterInfo>
 
-export default Footer
+      <p>
+        © 2025. Produzido por{" "}
+        <FooterLink href="https://github.com/netuninho" target="_blank">
+          Manuela Silva
+        </FooterLink>
+      </p>
+    </FooterContainer>
+  );
+};
+
+export default Footer;
