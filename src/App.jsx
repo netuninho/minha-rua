@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import InputField from './components/InputField';
 import MinhaRua from './assets/img/truck.gif'
+import Footer from './components/Footer';
 
 function App() {
   const [cep, setCep] = useState('');
@@ -82,6 +83,7 @@ function App() {
           )}
         </form>
       </main>
+      <Footer />
     </>
   )
 }
