@@ -4,7 +4,7 @@
 
 ## Funcionalidades
 
-- Busca informações de endereço pelo CEP usando a [Brasil API](https://brasilapi.com.br/api/cep/v2/).  
+- Busca informações de endereço pelo CEP usando a [Brasil API](https://brasilapi.com.br).  
 - Formatação automática do CEP enquanto você digita (`XXXXX-XXX`).  
 - Exibição do endereço completo: rua, bairro, cidade e UF.  
 - Feedback visual para erros e carregamento.
