@@ -45,6 +45,11 @@ const InputGroup = styled.div`
   max-width: 370px;
 `;
 
+const InputSearch = styled.div`
+  display: flex;
+  width: 90%;
+`;
+
 function App() {
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState(null);
@@ -99,7 +104,7 @@ function App() {
         <img src={MinhaRua} width={250} alt="Caminhão de entregas" />
 
         <Form onSubmit={buscarCEP}>
-          <InputGroup>
+          <InputSearch>
             <InputField
               id="cep"
               label="CEP"
@@ -109,7 +114,7 @@ function App() {
               maxLength={9}
             />
             <Button />
-          </InputGroup>
+          </InputSearch>
 
           {loading && <span className='loading'>Carregando...</span>}
 
