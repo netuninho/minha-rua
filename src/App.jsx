@@ -21,15 +21,28 @@ const Container = styled.main`
   padding: 1rem;
   text-align: center;
   min-height: 68vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `;
 
 const Form = styled.form`
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
 `;
 
 const InputGroup = styled.div`
   display: flex;
-justify-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  max-width: 370px;
 `;
 
 function App() {

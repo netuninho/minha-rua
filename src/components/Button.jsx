@@ -6,12 +6,15 @@ const ButtonStyled = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  position: relative;
+  right: 3rem;
+  top: .5rem;
 `;
 
 const Button = () => {
   return (
     <ButtonStyled type='submit'>
-      <img src={IconSearch} alt="Botão busca" width={10} />
+      <img src={IconSearch} alt="Botão busca" width={20} />
     </ButtonStyled>
   )
 }
