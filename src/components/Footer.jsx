@@ -5,7 +5,7 @@ import heartIcon from "../assets/img/icone-coracao.svg";
 const FooterContainer = styled.footer`
   text-align: center;
   padding: 2rem 0;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 `;
 
 const FooterInfo = styled.div`
@@ -15,7 +15,6 @@ const FooterInfo = styled.div`
 const FooterLink = styled.a`
   color: #fff;
   text-decoration: none;
-  transition: 0.2s ease;
 
   &:hover {
     text-decoration: underline;

@@ -20,6 +20,7 @@ const Container = styled.main`
   margin: 2rem auto;
   padding: 1rem;
   text-align: center;
+  min-height: 68vh;
 `;
 
 const Form = styled.form`
